@@ -109,7 +109,7 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
 
 ---
 
-## What's Coming:
+## 🔮 What's Coming:
 
 - Quiet mode / reduced verbosity: run without printing [INFO] messages by default
 - Chunk preview command: display how many output files would be created and unique items per chunk before writing
@@ -118,6 +118,11 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
 - Filter options: split or analyze by color, part type, or custom filters
 - Log coloring: make [INFO], [OK], [DRY] visually distinct for better readability
 - Desktop interface
+
+---
+
+## 🤝 Contact:
+For issues, suggestions, or contributions, feel free to open an issue on the GitHub repository.
 
 ---
 
