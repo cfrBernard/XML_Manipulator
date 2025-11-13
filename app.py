@@ -96,17 +96,25 @@ def main():
 
     args = parser.parse_args()
 
+    # Input path management (v1.1.0)
+    if os.path.isabs(args.input) or os.path.exists(args.input):
+        input_path = args.input
+    else:
+        input_path = os.path.join("assets", "input", args.input)
+
+    # stats
     if args.cmd == "stats":
-        tree = load_xml(args.input)
+        tree = load_xml(input_path)
         unique, total_qty = compute_stats(tree)
         print(f"Total physical pieces: {total_qty}")
         print(f"Unique items: {len(unique)}")
         return
 
+    # split
     if args.cmd == "split":
         date_dir = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         outdir = os.path.join("assets", "output", date_dir)
-        tree = load_xml(args.input)
+        tree = load_xml(input_path)
         outputs = split_xml(
             tree,
             args.max,
