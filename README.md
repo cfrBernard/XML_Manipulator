@@ -136,6 +136,8 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
     --input assets/input/parts.xml
     ```
 
+---
+
 ## 🤝 Contact:
 For issues, suggestions, or contributions, feel free to open an issue on the GitHub repository.
 
