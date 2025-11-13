@@ -127,14 +127,14 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
 
 - This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
 
-- > You can write the input path in absolute or relative form:
-    > ```
-    > --input parts.xml (If it is in assets/input/)
-    >
-    > OR
-    >
-    > --input assets/input/parts.xml
-    > ```
+- You can write the input path in absolute or relative form:
+    ```
+    --input parts.xml (If it is in assets/input/)
+    
+    OR
+    
+    --input assets/input/parts.xml
+    ```
 
 ## 🤝 Contact:
 For issues, suggestions, or contributions, feel free to open an issue on the GitHub repository.
