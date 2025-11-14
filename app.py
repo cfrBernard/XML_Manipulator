@@ -19,6 +19,7 @@ def compute_stats(tree):
     root = tree.getroot()
     unique = defaultdict(int)
     total_qty = 0
+    colors_set = set()
 
     for item in root.findall("ITEM"):
         part = item.findtext("ITEMID", default="?")
@@ -26,8 +27,9 @@ def compute_stats(tree):
         qty = int(item.findtext("QTY", default="0"))
         unique[(part, color)] += qty
         total_qty += qty
+        colors_set.add(color)
 
-    return unique, total_qty
+    return unique, total_qty, colors_set
 
 
 def split_xml(tree, max_unique, outdir, dry_run=False, verbose=False):
@@ -105,9 +107,10 @@ def main():
     # stats
     if args.cmd == "stats":
         tree = load_xml(input_path)
-        unique, total_qty = compute_stats(tree)
+        unique, total_qty, colors_set = compute_stats(tree)
         print(f"Total physical pieces: {total_qty}")
         print(f"Unique items: {len(unique)}")
+        print(f"Different colors: {len(colors_set)}")
         return
 
     # split

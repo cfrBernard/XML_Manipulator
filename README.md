@@ -1,7 +1,7 @@
 # XML_Manipulator
 
-![Version](https://img.shields.io/badge/version-v1.1.0-blue)
-[![License](https://img.shields.io/github/license/cfrBernard/XML_Manipulator)](./LICENSE.md)
+![Version](https://img.shields.io/badge/version-v1.2.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 This tool was created to help LEGO enthusiasts manage their BrickLink collections efficiently. Often, Rebrickable's free plan limits the number of unique parts per list, and manually splitting large XML inventories can be tedious. XML Manipulator automates this process, allowing you to:
 
@@ -72,6 +72,7 @@ python app.py stats --input assets/input/parts.xml
 ```
 Total physical pieces: 42817
 Unique items: 1342
+Different colors: 36
 ```
 
 ## 2. Split 
@@ -121,11 +122,7 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
 
 ---
 
-## Notes: 
-
-- For more information about the version, please refer to the [changelog](docs/CHANGELOG.md) section.
-
-- This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
+## Notes:
 
 - You can write the input path in absolute or relative form:
     ```
@@ -135,6 +132,10 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
     
     --input assets/input/parts.xml
     ```
+
+- For more information about the version, please refer to the [changelog](docs/CHANGELOG.md) section.
+
+- This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
 
 ---
 
