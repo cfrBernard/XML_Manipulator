@@ -1,6 +1,6 @@
 # XML_Manipulator
 
-![Version](https://img.shields.io/badge/version-v1.3.0-blue)
+![Version](https://img.shields.io/badge/version-v1.4.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 This tool was created to help LEGO enthusiasts manage their BrickLink collections efficiently. Often, Rebrickable's free plan limits the number of unique parts per list, and manually splitting large XML inventories can be tedious. XML Manipulator automates this process, allowing you to:
@@ -32,7 +32,7 @@ cd XML_Manipulator
 
 ## Usage
 
-The tool is a single CLI script: `app.py`. It provides two main commands: `stats` and `split`.
+The tool is a single CLI script: `app.py`. It provides two main commands: `stats`, `split` and `merge`.
 
 ### General Help
 
@@ -51,11 +51,14 @@ positional arguments:
 {stats,split} sub-command help
 stats Show stats about an XML inventory
 split Split an XML into chunks of unique parts
+merge Merge all XML files in a folder into one
 
 
 optional arguments:
 -h, --help show this help message and exit
 ```
+
+#
 
 ## 1. Stats
 
@@ -74,6 +77,8 @@ python app.py stats --input assets/input/parts.xml
 [INFO] Unique items: 1342
 [INFO] Different colors: 36
 ```
+
+#
 
 ## 2. Split 
 
@@ -108,6 +113,40 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
 
 > - **File output**: Files are written to `assets/output/<timestamp>/output_1.xml`, `output_2.xml`, etc.
 
+#
+
+## 3. Merge
+
+Merge multiple XML files into a single inventory file. By default, it merges all XML files in `assets/input/merge/`.
+
+### Command:
+
+```
+python app.py merge --input-dir assets/input/merge --output assets/output/merged.xml --verbose
+```
+
+### Options
+
+- `--input-dir` → folder containing XML files to merge (**default**: `assets/input/merge/`)
+- `--output` → path for the merged XML (**default**: `assets/output/merged_{timestamp}.xml`)
+- `--verbose` → show detailed processing messages
+- `--dry-run` → simulate the merge without writing the file
+
+### Dry-run example:
+
+```
+python app.py merge --dry-run --verbose
+```
+
+### Output example:
+
+```
+[INFO] Found 3 XML files in assets/input/merge
+[DRY] Would write merged file to: assets/output/merged_2025-11-17_15-30-00.xml
+```
+
+> **Merge behavior**: Duplicate items (same `ITEMID` and `COLOR`) are automatically combined by summing quantities.
+
 ---
 
 ## 🔮 What's Coming:
@@ -115,7 +154,6 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
 - Quiet mode / reduced verbosity: run without printing [INFO] messages by default
 - Chunk preview command: display how many output files would be created and unique items per chunk before writing
 - Export CSV: generate a CSV with part IDs, colors, and quantities
-- Merge multiple XML files: combine several inventories into one
 - Filter options: split or analyze by color, part type, or custom filters
 - Desktop interface
 

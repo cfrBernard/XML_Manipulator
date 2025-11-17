@@ -1,8 +1,16 @@
-## [v1.3.0] - 2025-11-14
+## [v1.4.0] - 2025-11-17
 
 ### Feature
 
-Log coloring: make [INFO], [OK], [DRY] visually distinct for better readability
+Add `merge` command to automatically merge multiple XML files from a folder into a single inventory file. Duplicate items are combined by summing their quantities. Supports `--dry-run` and `--verbose` options.
+
+---
+
+## [v1.3.0] - 2025-11-17
+
+### Feature
+
+Log coloring: make [INFO], [OK], [DRY] and [ERROR] visually distinct for better readability
 
 ---
 
