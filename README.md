@@ -1,6 +1,6 @@
 # XML_Manipulator
 
-![Version](https://img.shields.io/badge/version-v1.4.0-blue)
+![Version](https://img.shields.io/badge/version-v1.5.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 This tool was created to help LEGO enthusiasts manage their BrickLink collections efficiently. Often, Rebrickable's free plan limits the number of unique parts per list, and manually splitting large XML inventories can be tedious. XML Manipulator automates this process, allowing you to:
@@ -17,15 +17,20 @@ This tool was created to help LEGO enthusiasts manage their BrickLink collection
 ## Installation
 
 1. Clone this repository:
-```
-git clone https://github.com/cfrBernard/XML_Manipulator.git
-```
 
 ```
+git clone https://github.com/cfrBernard/XML_Manipulator.git
 cd XML_Manipulator
 ```
+
 2. Ensure you have Python 3 installed.
-3. Place your BrickLink XML file in `assets/input/`.
+3. Initialize the folder structure:
+
+```
+python app.py init
+```
+
+4. Place your BrickLink XML file in `assets/input/`.
 
 > No further installation is needed. No .venv needed too.
 
@@ -59,8 +64,6 @@ optional arguments:
 -h, --help show this help message and exit
 ```
 
-#
-
 ## 1. Stats
 
 Show basic statistics about your BrickLink inventory.
@@ -78,8 +81,6 @@ python app.py stats --input assets/input/parts.xml
 [INFO] Unique items: 1342
 [INFO] Different colors: 36
 ```
-
-#
 
 ## 2. Split 
 
@@ -113,8 +114,6 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
 ```
 
 > **File output**: Files are written to `assets/output/<timestamp>/output_1.xml`, `output_2.xml`, etc.
-
-#
 
 ## 3. Merge
 

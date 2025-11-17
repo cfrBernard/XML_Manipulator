@@ -1,3 +1,11 @@
+## [v1.5.0] - 2025-11-17
+
+### Feature
+
+Add `init` command to setup the `assets/` folder
+
+---
+
 ## [v1.4.0] - 2025-11-17
 
 ### Feature

@@ -8,6 +8,17 @@ from collections import defaultdict
 from scripts.utils.log import Log
 
 
+def init_folders():
+    folders = [
+        os.path.join("assets", "input"),
+        os.path.join("assets", "input", "merge"),
+        os.path.join("assets", "output"),
+    ]
+    for folder in folders:
+        os.makedirs(folder, exist_ok=True)
+        Log.ok(f"Ensured folder exists: {folder}")
+
+
 def load_xml(path):
     try:
         tree = ET.parse(path)
@@ -126,8 +137,16 @@ def merge_xml(input_dir, out_path, verbose=False, dry_run=False):
 
 
 def main():
+    
+    # ====================================================
+    # PARSER =============================================
+    # ====================================================
+
     parser = argparse.ArgumentParser(description="XML Manipulator for BrickLink inventories")
     sub = parser.add_subparsers(dest="cmd")
+
+    # ===== init =====
+    p_init = sub.add_parser("init", help="Create the default assets folder structure")
 
     # ===== stats =====
     p_stats = sub.add_parser("stats", help="Show stats about an XML inventory")
@@ -156,6 +175,15 @@ def main():
     p_merge.add_argument("--verbose", action="store_true")
 
     args = parser.parse_args()
+
+    # ====================================================
+    # CALLS ==============================================
+    # ====================================================
+
+    # ===== init =====
+    if args.cmd == "init":
+        init_folders()
+        return
 
     # ===== stats =====
     if args.cmd == "stats":
