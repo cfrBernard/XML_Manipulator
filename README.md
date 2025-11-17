@@ -1,6 +1,6 @@
 # XML_Manipulator
 
-![Version](https://img.shields.io/badge/version-v1.2.0-blue)
+![Version](https://img.shields.io/badge/version-v1.3.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 This tool was created to help LEGO enthusiasts manage their BrickLink collections efficiently. Often, Rebrickable's free plan limits the number of unique parts per list, and manually splitting large XML inventories can be tedious. XML Manipulator automates this process, allowing you to:
@@ -70,9 +70,9 @@ python app.py stats --input assets/input/parts.xml
 ### Output example:
 
 ```
-Total physical pieces: 42817
-Unique items: 1342
-Different colors: 36
+[INFO] Total physical pieces: 42817
+[INFO] Unique items: 1342
+[INFO] Different colors: 36
 ```
 
 ## 2. Split 
@@ -117,7 +117,6 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
 - Export CSV: generate a CSV with part IDs, colors, and quantities
 - Merge multiple XML files: combine several inventories into one
 - Filter options: split or analyze by color, part type, or custom filters
-- Log coloring: make [INFO], [OK], [DRY] visually distinct for better readability
 - Desktop interface
 
 ---

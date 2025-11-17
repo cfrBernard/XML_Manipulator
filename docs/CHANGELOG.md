@@ -1,3 +1,11 @@
+## [v1.3.0] - 2025-11-14
+
+### Feature
+
+Log coloring: make [INFO], [OK], [DRY] visually distinct for better readability
+
+---
+
 ## [v1.2.0] - 2025-11-14
 
 ### Feature

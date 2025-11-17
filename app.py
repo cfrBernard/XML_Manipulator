@@ -5,13 +5,14 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from collections import defaultdict
 
+from scripts.utils.log import Log
 
 def load_xml(path):
     try:
         tree = ET.parse(path)
         return tree
     except Exception as e:
-        print(f"[ERROR] Unable to load XML {path}: {e}")
+        Log.error(f"Unable to load XML {path}: {e}")
         sys.exit(1)
 
 
@@ -53,8 +54,8 @@ def split_xml(tree, max_unique, outdir, dry_run=False, verbose=False):
     chunks = [all_items[i : i + max_unique] for i in range(0, len(all_items), max_unique)]
 
     if verbose:
-        print(f"[INFO] Total unique items: {len(all_items)}")
-        print(f"[INFO] Will generate {len(chunks)} files.")
+        Log.info(f"Total unique items: {len(all_items)}")
+        Log.info(f"Will generate {len(chunks)} files.")
 
     # Prepare output dir
     if not dry_run:
@@ -72,11 +73,11 @@ def split_xml(tree, max_unique, outdir, dry_run=False, verbose=False):
 
         if dry_run:
             if verbose:
-                print(f"[DRY] Would write: {outpath}")
+                Log.dry(f"Would write: {outpath}")
         else:
             tree_out.write(outpath, encoding="utf-8", xml_declaration=True)
             if verbose:
-                print(f"[OK] Wrote {outpath}")
+                Log.ok(f"Wrote {outpath}")
 
     return outputs
 
@@ -108,9 +109,9 @@ def main():
     if args.cmd == "stats":
         tree = load_xml(input_path)
         unique, total_qty, colors_set = compute_stats(tree)
-        print(f"Total physical pieces: {total_qty}")
-        print(f"Unique items: {len(unique)}")
-        print(f"Different colors: {len(colors_set)}")
+        Log.info(f"Total physical pieces: {total_qty}")
+        Log.info(f"Unique items: {len(unique)}")
+        Log.info(f"Different colors: {len(colors_set)}")
         return
 
     # split
@@ -126,7 +127,7 @@ def main():
             verbose=args.verbose,
         )
         if not args.dry_run:
-            print(f"Generated {len(outputs)} files in {outdir}")
+            Log.info(f"Generated {len(outputs)} files in {outdir}")
         return
 
     parser.print_help()
