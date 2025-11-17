@@ -5,8 +5,9 @@
 
 This tool was created to help LEGO enthusiasts manage their BrickLink collections efficiently. Often, Rebrickable's free plan limits the number of unique parts per list, and manually splitting large XML inventories can be tedious. XML Manipulator automates this process, allowing you to:
 
-- Analyze your XML inventory (number of total pieces and unique parts)
+- Analyze your XML inventory (number of total pieces, unique parts, unique colors)
 - Split large inventories into multiple files, each respecting the maximum unique parts limit
+- Merge multiple XML files from a folder into a single inventory file
 - Optionally perform dry runs to preview the splits
 
 > No dependencies are required beyond Python 3, making it fast, portable, and easy to use.
@@ -32,7 +33,7 @@ cd XML_Manipulator
 
 ## Usage
 
-The tool is a single CLI script: `app.py`. It provides two main commands: `stats`, `split` and `merge`.
+The tool is a single CLI script: `app.py`. It provides three main commands: `stats`, `split` and `merge`.
 
 ### General Help
 
@@ -111,7 +112,7 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
 [DRY] Would write: assets/output/2025-11-11_22-10-00/output_2.xml
 ```
 
-> - **File output**: Files are written to `assets/output/<timestamp>/output_1.xml`, `output_2.xml`, etc.
+> **File output**: Files are written to `assets/output/<timestamp>/output_1.xml`, `output_2.xml`, etc.
 
 #
 
