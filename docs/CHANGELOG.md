@@ -1,3 +1,18 @@
+## [v1.6.0] - 2025-11-21
+
+### Feature
+- Added the `--bycolor` option to the `split` command:
+    - Allows splitting an inventory XML **by color**, then chunking each color according to `--max`.
+    - Generates files named `output_<COLOR>_<index>.xml`.
+    - Fully compatible with `--max`, `--dry-run`, and `--verbose`.
+
+### Fixed
+- Unified item merging logic `(ITEMID, COLOR)` across all split modes.
+- Consistent output formatting and logging across all operations.
+
+---
+
+
 ## [v1.5.0] - 2025-11-17
 
 ### Feature
