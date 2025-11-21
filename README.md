@@ -65,6 +65,8 @@ optional arguments:
 -h, --help show this help message and exit
 ```
 
+---
+
 ## 1. Stats
 
 Show basic statistics about your BrickLink inventory.
@@ -82,6 +84,8 @@ python app.py stats --input assets/input/parts.xml
 [INFO] Unique items: 1342
 [INFO] Different colors: 36
 ```
+
+---
 
 ## 2. Split 
 
@@ -126,6 +130,8 @@ python app.py split --input assets/input/parts.xml --max 1000 --dry-run --verbos
 
 > **Output location:**  
 > Generated files are stored in `assets/output/<timestamp>/`.
+
+---
 
 ## 3. Merge
 
