@@ -1,3 +1,12 @@
+## [v1.6.1] - 2025-11-23
+
+### Fixed
+- `README` reorganization
+- Creation of `USAGE.md` / `FAQ.md`
+- Improved structure
+
+---
+
 ## [v1.6.0] - 2025-11-21
 
 ### Feature
