@@ -83,7 +83,6 @@ The tool provides three main commands: **stats**, **split** and **merge**.
 
 ## What's Coming:
 
-- Export CSV: generate a CSV with part IDs, colors, and quantities
 - Filter options: split or analyze by part type, or custom filters
 - Desktop interface
 
